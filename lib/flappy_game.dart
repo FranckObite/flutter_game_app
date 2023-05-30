@@ -1,16 +1,24 @@
 import 'dart:ui';
 
-import 'package:app_game_flutter/composants/background.dart';
 import 'package:flame/flame.dart';
 import 'package:flame/game.dart';
+
+import 'package:app_game_flutter/composants/background.dart';
 
 class FlappyGame extends Game {
   late Size screenSize;
   late Background background;
 
   FlappyGame() {
+    initialize();
+     /* this represente notre classe actuelle */
+  }
+
+  void initialize() async {
+  
+    resize(await Flame.util.initialDimensions());
     background =
-        Background(game: this); /* this represente notre classe actuelle */
+        Background(game: this);
   }
 
   @override
